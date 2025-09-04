@@ -20,8 +20,9 @@ I think there may be increased MAIT cell signature (cluster 5 for the blood) in 
 - `reports/`
   - `CSF_Blood_MAIT.qmd` — Quarto report integrating CSF + blood results.
   - `CSF_Blood_MAIT.html/pdf` — Rendered reports integrating CSF + blood results.
-- `outputs/` large rds *(ignored in Git)*, but keep figures
-- `data/` *(ignored in Git)* Raw GEO downloads (GSE134576 / GSE134577).
+- `outputs/` large rds ignored, but keep figures
+- `data/` Raw GEO downloads (GSE134576 / GSE134577) ignored.
+
 
 
 
