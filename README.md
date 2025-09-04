@@ -4,8 +4,9 @@ I read tony wyss's paper named Clonally expanded CD8 T cells patrol the cerebros
 
 They think there is increased CD8⁺ TEMRA (T effector memory CD45RA⁺) cells in AD CSF and it correlated with bad cognitive score.
 
-I am wondering if there is increased MAIT signature in their dataset (They have scRNA-seq from 18 CSF samples and 13 blood samples from AD, MCI, and HC people.)
+I am wondering if there is increased MAIT signature in AD their dataset for either blood or CSF. (They have human scRNA-seq from 18 CSF samples and 13 blood samples from AD, MCI, and HC people.)
 
+I think there may be increased MAIT cell signature (cluster 5 for the blood) in AD, but I didn't see MAIT cell signature in CSF except KLRB1 expression in a lot of cells. This led me wonder maybe in AD, the effect of MAIT cells may be more through periphery? 
 
 ## Source
 - Paper: https://www.nature.com/articles/s41586-019-1895-7#Sec2
@@ -21,5 +22,6 @@ I am wondering if there is increased MAIT signature in their dataset (They have 
   - `CSF_Blood_MAIT.html/pdf` — Rendered reports integrating CSF + blood results.
 - `outputs/` large rds *(ignored in Git)*, but keep figures
 - `data/` *(ignored in Git)* Raw GEO downloads (GSE134576 / GSE134577).
+
 
 
