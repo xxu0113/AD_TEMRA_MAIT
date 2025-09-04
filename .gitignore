@@ -3,4 +3,15 @@
 .Rproj.user/
 renv/library/
 data/
-outputs/
+.RDataTmp
+
+# Outputs: ignore large binary objects
+outputs/*.rds
+outputs/*.RData
+outputs/*.tar.gz
+
+# Keep lightweight results
+!outputs/*.png
+!outputs/*.pdf
+!outputs/*.html
+!outputs/*.tsv
