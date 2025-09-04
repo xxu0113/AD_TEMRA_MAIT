@@ -1,0 +1,107 @@
+---
+title: "CSF and Blood MAIT Analysis"
+format: pdf
+editor: visual
+---
+
+```{r}
+suppressPackageStartupMessages({
+  library(Seurat)
+  library(ggplot2)
+  library(dplyr)
+})
+
+```
+
+## 1. CSF Analysis
+
+```{r}
+
+csf <- readRDS("../outputs/csf/csf_sct.rds")
+
+# MAIT markers by cluster
+DotPlot(csf, features = c("KLRB1","SLC4A10","ZBTB16","TRAV1-2","IL18RAP","CCR6","CXCR6")) + RotatedAxis()
+
+
+```
+
+```{r}
+# I think cluster7 expresses some mait cell marker but not strong, but I still make analysis
+
+# manually map GSM -> diagnosis (from GEO page)
+lookup <- c(
+  GSM3984199_CSF1 = "HC",
+  GSM3984200_CSF2 = "AD",
+  GSM3984201_CSF3 = "HC",
+  GSM3984202_CSF4 = "HC",
+  GSM3984203_CSF5 = "MCI",
+  GSM3984204_CSF6 = "AD",
+  GSM3984205_CSF8 = "HC",
+  GSM3984206_CSF9 = "AD",
+  GSM3984207_CSF11= "MCI",
+  GSM3984208_CSF12= "HC",
+  GSM3984209_CSF13= "HC",
+  GSM3984210_CSF15= "MCI",
+  GSM3984211_CSF16= "HC",
+  GSM3984212_CSF17= "MCI",
+  GSM3984213_CSF18= "AD",
+  GSM3984214_CSF19= "MCI",
+  GSM3984215_CSF20= "HC",
+  GSM3984216_CSF23= "HC"
+)
+csf$Diagnosis <- unname(lookup[as.character(csf$sample_id)])
+table(csf$Diagnosis)
+
+
+Idents(csf) <- "seurat_clusters"
+
+# raw counts
+table(csf$Diagnosis[Idents(csf) == "7"])
+
+# proportions per diagnosis group
+prop.table(table(csf$Diagnosis, Idents(csf)), margin = 1)[,"7"]
+
+
+```
+
+## 2. Blood Analysis
+
+```{r}
+blood <- readRDS("../outputs/blood/blood_sct.rds")
+
+DotPlot(blood, features = c("KLRB1","SLC4A10","ZBTB16","TRAV1-2","IL18RAP","CCR6","CXCR6")) + RotatedAxis()
+
+```
+
+```{r}
+
+# I think cluster5 is mait cells
+#Make a lookup table inside R
+lookup_blood <- c(
+  GSM3956366_T1 = "AD",
+  GSM3956367_T2 = "MCI",
+  GSM3956368_T3 = "HC",
+  GSM3956369_T4 = "HC",
+  GSM3956370_T5 = "AD",
+  GSM3956371_T6 = "AD",
+  GSM3956372_T7 = "HC",
+  GSM3956373_T8 = "HC",
+  GSM3956374_T9 = "AD",
+  GSM3956375_T10 = "HC",
+  GSM3956376_T11 = "HC",
+  GSM3956377_T12 = "HC",
+  GSM3956378_T14 = "MCI"
+)
+#Add diagnosis to Seurat metadata
+blood$Diagnosis <- unname(lookup_blood[as.character(blood$sample_id)])
+table(blood$Diagnosis)   # sanity check
+
+#count cluster5 by diganosis
+Idents(blood) <- "seurat_clusters"
+
+# Raw counts of cluster 5 cells by diagnosis
+table(blood$Diagnosis[Idents(blood) == "5"])
+
+# Or proportion of each diagnosis group in cluster 5
+prop.table(table(blood$Diagnosis, Idents(blood)), margin = 1)[, "5"]
+```
