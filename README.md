@@ -24,6 +24,13 @@ I think there may be increased MAIT cell signature (cluster 5 for the blood) in 
 - `data/` Raw GEO downloads (GSE134576 / GSE134577) ignored.
 
 
+## Results for blood analysis
+I think in blood, in AD, there are 2 sample/patients with higher mait cell in terms of count.
+<img width="1142" height="1278" alt="image" src="https://github.com/user-attachments/assets/6d8e704d-3361-438d-84c4-c2f11743cf58" />
+
+I think in blood, in AD, there are 2 sample/patients with higher mait cell in terms of MAIT propotion over all blood cells.
+<img width="1142" height="1278" alt="image" src="https://github.com/user-attachments/assets/6a28eb93-316f-4cd4-88dd-6b66bd89f44d" />
+
 
 
 
