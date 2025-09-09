@@ -31,6 +31,10 @@ I think in blood, in AD, there are 2 sample/patients with higher mait cell in te
 I think in blood, in AD, there are 2 sample/patients with higher mait cell in terms of MAIT propotion over all blood cells.
 <img width="1142" height="1278" alt="image" src="https://github.com/user-attachments/assets/6a28eb93-316f-4cd4-88dd-6b66bd89f44d" />
 
+## To do
+Figure out the TCR naming and incorporate TCR result with RNA result?
+
+
 
 
 
